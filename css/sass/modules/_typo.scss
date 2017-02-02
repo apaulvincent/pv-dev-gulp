@@ -1,0 +1,106 @@
+html {
+  
+	font: normal 112% / 1.5 serif;
+
+	@include respond(991){
+		//font: normal 100% / 1.6 serif;
+	}
+
+	@include respond(767){
+		//font: normal 70% / 1.8 serif;
+	}
+
+}
+
+body {
+	font-family: $f_a_2;
+	font-size: 16px;
+	word-wrap: normal;
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	color: $c_a_1;
+}
+
+
+sub, sup {
+  font-size: 64%;
+}
+
+sup {
+  top: -0.4em;
+}
+
+
+
+
+ h1, 
+ h2, 
+ h3, 
+ h4, 
+ h5, 
+ h6 {
+  font-family: $f_a_1;
+  text-rendering: optimizeLegibility;
+  line-height: 1.2;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+
+h1 {
+	font-size: em(60px);
+	margin-bottom: 1.2;
+	
+	@include respond(780){
+		font-size: em(28px);
+	}
+
+}
+
+h2 {
+  font-size: em(40px);
+  margin-bottom: 1.2;
+	
+	@include respond(780){
+		font-size: em(28px);
+	}
+
+}
+
+h3 {
+  font-size: em(32px);
+  margin-bottom: 1.2;
+
+	@include respond(780){
+		font-size: em(28px);
+		margin-top: 1.2em;
+	}
+
+
+}
+
+h4 {
+  font-size: em(28px);
+  margin-bottom: 1.2;
+
+	@include respond(780){
+		font-size: em(24px);
+		margin-top: 1.2em;
+	}
+}
+
+h5 {
+	font-size: em(24px);
+	margin-bottom: 1.2;
+
+	@include respond(780){
+		font-size: em(20px);
+		margin-top: 1.2em;
+	}
+}
+
+h6 {
+  font-size: 1.1em;
+  margin-bottom: 0.60606rem;
+}

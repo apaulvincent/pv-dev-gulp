@@ -1,0 +1,37 @@
+// Sprites
+
+@mixin declare-sprites($map, $n){
+
+	$s : arr-point;
+
+	@each $l in $s {
+
+		&.#{$l}{
+			@include set-sprite($map, #{$l}, $n);
+		}  
+
+	}
+
+}
+
+.s{
+	background:$sprite;
+	display: inline-block;
+
+	@include transition(0.4s all ease);
+	@include declare-sprites($sprite, 1);
+}
+
+
+// Change to highres sprite
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
+	.s {
+		background-image:$sprite2x;
+		background-size: sprite-width($sprite2x) / 2 auto;
+
+		@include declare-sprites($sprite2x, 2);
+	}
+}
+
+
+

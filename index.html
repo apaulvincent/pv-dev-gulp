@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Betica Shop</title>
+	<meta name="author" content="PAUL VINCENT DE OCAMPO">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+ <body>
+
+<header class="header active">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<a href="/" class="branding">Betica Shop</a>
+			</div>
+		</div>
+	</div>		
+</header>
+
+
+<div class="main-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+
+			    <nav id="productTabs" class="product-tabs"><ul class="tbl"></ul></nav>
+			    <div id="content"></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+
+				<span>Copyright 2014</span>
+
+			</div>
+		</div>
+	</div>
+</footer>
+
+    <!-- Cards Template -->
+    <script id="tmpl" type="text/x-template">
+        <div class="card movit fadeInUp">
+            <small class="manufacturer">{{manufacturer}}</small>
+            <h3 class="product">{{product}}</h3>
+            <p>Manufactured by {{manufacturer}} to be released id {{releaseDate}}</p>
+            <div class="price">$ {{price}}</div>
+        </div>
+    </script>
+
+
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/vendor/jquery.3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/vendor/wow.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+      var info = {
+        "items": {
+          "phone" : [ 
+            {
+              "product" : "iPhone 8",
+              "manufacturer" : "Apple",
+              "releaseDate" : "2018",
+              "price" : 499
+            }, 
+            {
+              "product" : "Galaxy S9",
+              "manufacturer" : "Samsung",
+              "releaseDate" : "2018",
+              "price" : 350
+            }, 
+            {
+              "product" : "Xperia ZZ",
+              "manufacturer" : "Sony",
+              "releaseDate" : "2020",
+              "price" : 399
+            } 
+          ],
+          "laptop" : [ 
+            {
+              "product" : "MacBook PRO 2018",
+              "manufacturer" : "Apple",
+              "releaseDate" : "2017",
+              "price" : 1999
+            }, 
+            {
+              "product" : "Vaio",
+              "manufacturer" : "Sony",
+              "releaseDate" : "2020",
+              "price" : 1690
+            } 
+          ]
+        }
+      };
+       
+
+       (function($){
+       		$(function(){
+
+       			var cards = '',
+       			    nav = '',
+       			    hash = window.location.hash.substr(1),
+       			    counter = 0,
+                obj,
+                $temp = $('#tmpl');
+
+              $.each(info.items, function(key, val) {
+
+                if(hash) {
+
+                    if(hash == key){
+                      nav += '<li class="tbl-cell"><a href="#'+key+'" class="active">'+key+'</a></li>';
+                      obj = val;
+        						} else {
+        							nav += '<li class="tbl-cell"><a href="#'+key+'">'+key+'</a></li>';
+        						} 
+
+                } else {
+
+                    if(counter == 0){
+                      nav += '<li class="tbl-cell"><a href="#'+key+'" class="active">'+key+'</a></li>';
+                      obj = val;
+                    } else {
+                      nav += '<li class="tbl-cell"><a href="#'+key+'">'+key+'</a></li>';
+                    }
+
+                    counter++;
+                }
+
+    					});
+
+
+              $.each(obj, function(k, v) {
+                  cards += $temp.html().replace(/{{(.*?)}}/g, function(a, b) {return v[b]});
+              });
+
+              $('#productTabs ul').prepend(nav);
+              $('#content').html(cards);
+              $('#productTabs a').on('click', function(e) {
+
+              	var updateCards = '',
+              	    item = $(this).attr('href').replace('#', '');
+
+              	$('#productTabs a').removeClass('active');
+              	$(this).addClass('active');
+
+                $.each(info.items[item], function(k, v) {
+                    updateCards += $temp.html().replace(/{{(.*?)}}/g, function(a, b) {return v[b]});
+                });
+
+                $('#content').html(updateCards);
+
+              });
+
+
+       		});
+
+       }(jQuery))
+       
+      // enter your code here
+      // render the items in the info using native Javascript or jQuery
+    </script>
+</body>
+</html>

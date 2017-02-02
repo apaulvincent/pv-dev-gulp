@@ -1,0 +1,22 @@
+.product-tabs {
+	
+	ul {
+		width: 100%;
+	}
+
+	li {
+		border: 1px solid #ddd;
+	}
+
+	a {
+		display: block;
+		background: #fafafa;
+		text-align: center;
+		padding: 5px 0;
+
+		&.active {
+			background: #68c475;
+			color: #fff;
+		}
+	}
+}

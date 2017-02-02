@@ -1,0 +1,31 @@
+// ======================================================================
+   // Vars
+// ======================================================================
+
+
+$sprite2x: sprite-map("utilities2x/*.png", $spacing: 20px, $repeat: no-repeat); 
+$sprite: sprite-map("utilities/*.png", $spacing: 10px, $repeat: no-repeat); // path relative to main.css
+
+$base-font-size: 18px;
+
+// BODY
+$c_a: #151414; 
+	$c_a_1: #151414; 
+
+// HEADING
+$c_b: #666;
+
+
+// HIGHLIGHT
+$c_c: #ffde17; 
+	$c_c_1: #ffde17; 
+
+
+
+
+// MAIN FONT
+$f_a: 'latoregular', sans-serif;
+	$f_a_1: 'latoregular', sans-serif;
+	$f_a_2: 'latolight', sans-serif;
+	$f_a_3: 'latobold', sans-serif;
+

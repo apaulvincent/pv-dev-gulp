@@ -1,0 +1,57 @@
+// =================================== 5x Grid
+
+.col-xs-x5,
+.col-sm-x5,
+.col-md-x5,
+.col-lg-x5 {
+	position: relative;
+	min-height: 1px;  
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.col-xs-x5 {
+     width: 20%;
+     float: left;
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+     .col-sm-x5 {
+          width: 20%;
+          float: left;
+     }
+}
+
+@media (min-width: 992px) {
+     .col-md-x5 {
+          width: 20%;
+          float: left;
+     }
+}
+@media (min-width: 1200px) {
+     .col-lg-x5 {
+          width: 20%;
+          float: left;
+     }
+}
+
+// =================================== No Gutter Grid
+
+.no-gutter {
+	[class*='col-'] {
+	    padding-right: 0;
+	    padding-left: 0;
+	}
+
+	@include respond(800) {
+		[class*='col-'] {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+}
+
+
